@@ -8,8 +8,8 @@ Inspired by: https://www.smashingmagazine.com/2023/08/better-context-menus-safe-
    - `yarn add @svondervoort/safe-triangles`,
 2. Import it into your project `import generateSafeTriangles from "@svondervoort/safe-triangles";`.
 3. Add the following data-attributes to the elements:
-   - `data-safe-area-dropdown="%ID%"` (required)
-   - `data-safe-area-direction="down | right"` (optional, default to down)
+   - `data-safe-triangle-dropdown="%ID%"` (required)
+   - `data-safe-triangle-direction="down | right"` (optional, default to down)
 4. Initialize it using `generateSafeTriangles();`.
    - Input requires either a `selector <string>` or a `<NodeList>`.
 
