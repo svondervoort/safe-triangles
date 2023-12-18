@@ -2,7 +2,7 @@
   "name": "@svondervoort/safe-triangles",
   "version": "1.0.0",
   "description": "A helper for users to navigation more easilly through dropdowns",
-  "main": "index.ts",
+  "main": "dist/ts/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "css": "sass src/scss/style.scss dist/css/style.css"
