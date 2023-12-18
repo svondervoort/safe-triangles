@@ -22,7 +22,7 @@
     "url": "https://github.com/svondervoort/safe-triangles/issues"
   },
   "homepage": "https://github.com/svondervoort/safe-triangles#readme",
-  "dependencies": {
+  "dev-dependencies": {
     "sass": "^1.69.5"
   }
 }
