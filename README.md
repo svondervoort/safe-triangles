@@ -1,4 +1,4 @@
-# safe-triangle
+# safe-triangles
 
 Inspired by: https://www.smashingmagazine.com/2023/08/better-context-menus-safe-triangles/
 
