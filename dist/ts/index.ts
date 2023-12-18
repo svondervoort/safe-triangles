@@ -198,9 +198,9 @@ const generateSafeTriangles = (input, options: options) => {
         }
 
         // Dropdown
-        const dropdownId: string = element.dataset.safeAreaDropdown;
+        const dropdownId: string = element.dataset.safeTriangleDropdown;
         const dropdown: HTMLElement = document.querySelector('div[data-safe-area-dropdown="' + dropdownId + '"]');
-        const dropdownDirection: string = element.dataset.safeAreaDirection ?? 'down';
+        const dropdownDirection: string = element.dataset.safeTriangleDirection ?? 'down';
         let dropdownData: dropdownData = getDropdownData(dropdown, dropdownDirection);
 
         // Create SVG
