@@ -1,0 +1,35 @@
+.safe-triangle {
+  &__item {
+    position: relative;
+
+    &--debug {
+      &::after {
+        content: "";
+        @include position(absolute, 0, 0, 0, 0);
+        background-color: rgba(red, .1);
+        border: 1px solid red;
+      }
+    }
+  }
+
+  &__svg {
+    position: absolute;
+    z-index: 0;
+    display: none;
+
+    .safe-area__item:hover & {
+      display: block;
+      z-index: 9;
+    }
+
+    .safe-area__item--debug & {
+      background-color: rgba(green, .05);
+    }
+  }
+
+  &__path {
+    &--has-link {
+      cursor: pointer;
+    }
+  }
+}
