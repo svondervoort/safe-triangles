@@ -4,7 +4,8 @@
   "description": "A helper for users to navigation more easilly through dropdowns",
   "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "css": "sass src/scss/style.scss dist/css/style.css"
   },
   "repository": {
     "type": "git",
@@ -20,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/svondervoort/safe-triangles/issues"
   },
-  "homepage": "https://github.com/svondervoort/safe-triangles#readme"
+  "homepage": "https://github.com/svondervoort/safe-triangles#readme",
+  "dependencies": {
+    "sass": "^1.69.5"
+  }
 }
