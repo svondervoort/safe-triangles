@@ -39,7 +39,7 @@ class options {
  **********************************************************************************************************************/
 
 const updateSvg = (svgEl, elementData, dropdownData) => {
-    svgEl.classList.add('safe-area__svg', 'svg--keep-colors');
+    svgEl.classList.add('safe-triangle__svg', 'svg--keep-colors');
     svgEl.setAttribute('fill', 'none');
     svgEl.style.pointerEvents = 'none';
 
@@ -73,7 +73,7 @@ const updateSvg = (svgEl, elementData, dropdownData) => {
 
 const updateSvgPath = (svgPathEl, elementData, dropdownData, x, y, debug) => {
     // Add class for styling
-    svgPathEl.classList.add('safe-area__path');
+    svgPathEl.classList.add('safe-triangle__path');
 
     // Add visible styling if debug is true
     if (!debug) {
@@ -89,7 +89,7 @@ const updateSvgPath = (svgPathEl, elementData, dropdownData, x, y, debug) => {
 
     // Add class for styling if element is a link
     if (elementData.isLink) {
-        svgPathEl.classList.add('safe-area__path--has-link');
+        svgPathEl.classList.add('safe-triangle__path--has-link');
     }
 
     // Update path according to direction
@@ -178,7 +178,7 @@ const generateSafeTriangles = (input, options: options) => {
     };
     options = {...defaultOptions, ...options};
 
-    let elements: NodeListOf<HTMLElement> = document.querySelectorAll('.safe-area__item--js');
+    let elements: NodeListOf<HTMLElement> = document.querySelectorAll('.safe-triangle__item--js');
 
     if (typeof input === 'string' || input instanceof String) {
         elements = document.querySelectorAll(input.toString());
@@ -196,13 +196,13 @@ const generateSafeTriangles = (input, options: options) => {
                 let dropdownData: dropdownData = getDropdownData(dropdown, dropdownDirection);
 
                 // Add classes to element
-                element.classList.add('safe-area__item', 'safe-area__item--js');
+                element.classList.add('safe-triangle__item', 'safe-triangle__item--js');
 
                 let elementData: elementData = getElementData(element);
 
                 if (options.debug) {
                     // Add extra debug class
-                    element.classList.add('safe-area__item--debug');
+                    element.classList.add('safe-triangle__item--debug');
                 }
 
                 // Create SVG
