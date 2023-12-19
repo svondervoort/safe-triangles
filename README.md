@@ -79,4 +79,5 @@ generateSafeTriangles(elements, { delay: 100, debug: true });
 ---
 # Roadmap
 
+[ ❌ ] Create a demo page.
 [ ❌ ] Detect position of dropdown compared to menu-item to make `data-safe-triangle-direction` redundant.
