@@ -187,64 +187,68 @@ const generateSafeTriangles = (input, options: options) => {
     }
 
     elements.forEach((element: HTMLElement) => {
-        // Add classes to element
-        element.classList.add('safe-area__item', 'safe-area__item--js');
-
-        let elementData: elementData = getElementData(element);
-
-        if (options.debug) {
-            // Add extra debug class
-            element.classList.add('safe-area__item--debug');
-        }
-
         // Dropdown
         const dropdownId: string = element.dataset.safeTriangleDropdown;
-        const dropdown: HTMLElement = document.querySelector('div[data-safe-area-dropdown="' + dropdownId + '"]');
-        const dropdownDirection: string = element.dataset.safeTriangleDirection ?? 'down';
-        let dropdownData: dropdownData = getDropdownData(dropdown, dropdownDirection);
+        if (dropdownId != '') {
+            const dropdown: HTMLElement = document.querySelector('div[data-safe-triangle-dropdown="' + dropdownId + '"]');
+            if (dropdown) {
+                const dropdownDirection: string = element.dataset.safeTriangleDirection ?? 'down';
+                let dropdownData: dropdownData = getDropdownData(dropdown, dropdownDirection);
 
-        // Create SVG
-        const svgEl: SVGSVGElement = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-        updateSvg(svgEl, elementData, dropdownData);
+                // Add classes to element
+                element.classList.add('safe-area__item', 'safe-area__item--js');
 
-        // Create SVG Path
-        const svgPathEl: SVGPathElement = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-        if (dropdownDirection == 'right') {
-            updateSvgPath(svgPathEl, elementData, dropdownData, 0, 0, options.debug);
-        } else {
-            updateSvgPath(svgPathEl, elementData, dropdownData, elementData.centerX, elementData.centerY, options.debug);
+                let elementData: elementData = getElementData(element);
+
+                if (options.debug) {
+                    // Add extra debug class
+                    element.classList.add('safe-area__item--debug');
+                }
+
+                // Create SVG
+                const svgEl: SVGSVGElement = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                updateSvg(svgEl, elementData, dropdownData);
+
+                // Create SVG Path
+                const svgPathEl: SVGPathElement = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                if (dropdownDirection == 'right') {
+                    updateSvgPath(svgPathEl, elementData, dropdownData, 0, 0, options.debug);
+                } else {
+                    updateSvgPath(svgPathEl, elementData, dropdownData, elementData.centerX, elementData.centerY, options.debug);
+                }
+
+                // Add Path to SVG
+                svgEl.appendChild(svgPathEl);
+
+                // Add SVG to element
+                element.appendChild(svgEl);
+
+                // Redraw SVG on mouseEnter (fix for child dropdowns & transform styling)
+                element.addEventListener('mouseenter', (e: MouseEvent) => {
+                    elementData = getElementData(element);
+                    dropdownData = getDropdownData(dropdown, dropdownDirection);
+                    updateSvg(svgEl, elementData, dropdownData);
+                });
+
+                // Element mousemove update path
+                element.addEventListener('mousemove', (e: MouseEvent) => {
+                    // Mouse position
+                    const x: number = e.clientX;
+                    const y: number = e.clientY;
+
+                    setTimeout(() => {
+                        updateSvgPath(svgPathEl, elementData, dropdownData, x, y, options.debug);
+                    }, options.delay);
+                });
+
+                // Get width on resize and update SVG width
+                window.addEventListener('resize', () => {
+                    dropdownData = getDropdownData(dropdown, dropdownDirection);
+                    elementData = getElementData(element);
+                    updateSvg(svgEl, elementData, dropdownData);
+                });
+            }
         }
-
-        // Add Path to SVG
-        svgEl.appendChild(svgPathEl);
-
-        // Add SVG to element
-        element.appendChild(svgEl);
-
-        // Redraw SVG on mouseEnter (fix for child dropdowns & transform styling)
-        element.addEventListener('mouseenter', (e: MouseEvent) => {
-            elementData = getElementData(element);
-            dropdownData = getDropdownData(dropdown, dropdownDirection);
-            updateSvg(svgEl, elementData, dropdownData);
-        });
-
-        // Element mousemove update path
-        element.addEventListener('mousemove', (e: MouseEvent) => {
-            // Mouse position
-            const x: number = e.clientX;
-            const y: number = e.clientY;
-
-            setTimeout(() => {
-                updateSvgPath(svgPathEl, elementData, dropdownData, x, y, options.debug);
-            }, options.delay);
-        });
-
-        // Get width on resize and update SVG width
-        window.addEventListener('resize', () => {
-            dropdownData = getDropdownData(dropdown, dropdownDirection);
-            elementData = getElementData(element);
-            updateSvg(svgEl, elementData, dropdownData);
-        });
     });
 };
 
