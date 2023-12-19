@@ -169,7 +169,7 @@ const getDropdownData = (dropdown, direction) => {
  * Generate Safe Areas
  **********************************************************************************************************************/
 
-const generateSafeTriangles = (input, options: options) => {
+const generateSafeTriangles = (input, options?: options) => {
 
     // Merge default options and custom options
     let defaultOptions: options = {
