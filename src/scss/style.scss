@@ -21,12 +21,12 @@
     z-index: 0;
     display: none;
 
-    .safe-area__item:hover & {
+    .safe-triangle__item:hover & {
       display: block;
       z-index: 9;
     }
 
-    .safe-area__item--debug & {
+    .safe-triangle__item--debug & {
       background-color: rgba(green, .05);
     }
   }
