@@ -1,4 +1,4 @@
-# safe-triangles
+# Safe-Triangles
 
 Inspired by: https://www.smashingmagazine.com/2023/08/better-context-menus-safe-triangles/
 
@@ -61,13 +61,13 @@ The function requires either a `selector <string>` or a `DOM node list <NodeList
 ```javascript
 // Import Javascript
 import generateSafeTriangles from "@svondervoort/safe-triangles";
+
 // Import SCSS
 import '@svondervoort/safe-triangles/src/scss/style.scss';
+
 // Create NodeList
 let elements = document.querySelectorAll('.header-main-nav-l1__item-link--has-children-js, .header-main-nav-l2__item-link--has-children-js');
+
 // Initialize with delay and debug
-generateSafeTriangles(elements, {
-    delay: 100,
-    debug: true
-});
+generateSafeTriangles(elements, { delay: 100, debug: true });
 ```
