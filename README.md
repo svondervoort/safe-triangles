@@ -77,6 +77,13 @@ generateSafeTriangles(elements, { delay: 100, debug: true });
 ```
 
 ---
+# Demo
+You can find a demo here with 3 variants:
+- [Without Safe-Triangles](https://safe-triangles.vercel.app/demo1.html)
+- [With Safe-Triangles ( debug: true )](https://safe-triangles.vercel.app/)
+- [Without Safe-Triangles ( debug: false )](https://safe-triangles.vercel.app/demo3.html)
+
+---
 # Roadmap
 
 [ ❌ ] Create a demo page.
