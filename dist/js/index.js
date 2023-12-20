@@ -1,22 +1,22 @@
+"use strict";
 // Inspired by: https://www.smashingmagazine.com/2023/08/better-context-menus-safe-triangles/
-
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+exports.__esModule = true;
 /***********************************************************************************************************************
  * Classes
  **********************************************************************************************************************/
-
-class ElementData {
-    _el: object;
-    width: number;
-    height: number;
-    top: number;
-    right: number;
-    bottom: number;
-    left: number;
-    centerX: number;
-    centerY: number;
-    isLink: boolean;
-
-    constructor(el, width, height, top, right, bottom, left, centerX, centerY, isLink) {
+var ElementData = /** @class */ (function () {
+    function ElementData(el, width, height, top, right, bottom, left, centerX, centerY, isLink) {
         this._el = el;
         this.width = width;
         this.height = height;
@@ -28,20 +28,10 @@ class ElementData {
         this.centerY = centerY;
         this.isLink = isLink;
     }
-}
-
-class DropdownData {
-    _el: object;
-    width: number;
-    height: number;
-    top: number;
-    right: number;
-    bottom: number;
-    left: number;
-    direction: string;
-    style: string;
-
-    constructor(el, width, height, top, right, bottom, left, direction, style) {
+    return ElementData;
+}());
+var DropdownData = /** @class */ (function () {
+    function DropdownData(el, width, height, top, right, bottom, left, direction, style) {
         this._el = el;
         this.width = width;
         this.height = height;
@@ -52,202 +42,172 @@ class DropdownData {
         this.direction = direction;
         this.style = style;
     }
-}
-
-class options {
-    delay?: number;
-    debug?: boolean;
-}
-
+    return DropdownData;
+}());
+var options = /** @class */ (function () {
+    function options() {
+    }
+    return options;
+}());
 /***********************************************************************************************************************
  * Update SVG
  **********************************************************************************************************************/
-
-const updateSvg = (svgEl, elementData, dropdownData) => {
+var updateSvg = function (svgEl, elementData, dropdownData) {
     svgEl.classList.add('safe-triangle__svg', 'svg--keep-colors');
     svgEl.setAttribute('fill', 'none');
     svgEl.style.pointerEvents = 'none';
-
     // Update SVG according to direction
     if (dropdownData.direction === 'right') {
         // Set dimensions
-        const height: number = (elementData.bottom > dropdownData.bottom) ? (elementData.bottom - dropdownData.top) : dropdownData.height;
+        var height = (elementData.bottom > dropdownData.bottom) ? (elementData.bottom - dropdownData.top) : dropdownData.height;
         svgEl.setAttribute('viewBox', '0 0 ' + (dropdownData.left - elementData.left) + ' ' + height);
         svgEl.style.height = height + 'px';
         svgEl.style.width = (dropdownData.left - elementData.left) + 'px';
-
         // Set positions
-        const top: number = (elementData.top >= dropdownData.top) ? (elementData.top - dropdownData.top) * -1 : elementData.top;
-        svgEl.style.top = top + 'px';
+        var top_1 = (elementData.top >= dropdownData.top) ? (elementData.top - dropdownData.top) * -1 : elementData.top;
+        svgEl.style.top = top_1 + 'px';
         svgEl.style.left = '0px';
-    } else {
+    }
+    else {
         // Set dimensions
         svgEl.setAttribute('viewBox', '0 0 ' + dropdownData.width + ' ' + elementData.height);
         svgEl.style.height = elementData.height + 'px';
         svgEl.style.width = dropdownData.width + 'px';
-
         // Set positions
         svgEl.style.top = '0px';
         svgEl.style.left = (dropdownData.left - elementData.left) + 'px';
     }
-}
-
+};
 /***********************************************************************************************************************
  * Update SVG Path
  **********************************************************************************************************************/
-
-const updateSvgPath = (svgPathEl, elementData, dropdownData, x, y, debug) => {
+var updateSvgPath = function (svgPathEl, elementData, dropdownData, x, y, debug) {
     // Add class for styling
     svgPathEl.classList.add('safe-triangle__path');
-
     // Add visible styling if debug is true
     if (!debug) {
         svgPathEl.setAttribute('fill', 'transparent');
-    } else {
+    }
+    else {
         svgPathEl.setAttribute('fill', 'rgb(0 256 0 / 0.1)');
         svgPathEl.setAttribute('stroke', 'green');
         svgPathEl.setAttribute('strokeWidth', '0.5');
     }
-
     // Set pointer-events style
     svgPathEl.style.pointerEvents = 'auto';
-
     // Add class for styling if element is a link
     if (elementData.isLink) {
         svgPathEl.classList.add('safe-triangle__path--has-link');
     }
-
     // Update path according to direction
     if (dropdownData.direction === 'right') {
-        const width: number = (dropdownData.left - elementData.left);
-        const height: number = (elementData.bottom > dropdownData.bottom) ? (elementData.bottom - dropdownData.top) : dropdownData.height;
+        var width = (dropdownData.left - elementData.left);
+        var height = (elementData.bottom > dropdownData.bottom) ? (elementData.bottom - dropdownData.top) : dropdownData.height;
         svgPathEl.setAttribute('d', 'M ' + (x - elementData.left) + ' ' + (y - dropdownData.top) + ' L ' + width + ' 0 L ' + width + ' ' + height + ' z');
-    } else {
+    }
+    else {
         svgPathEl.setAttribute('d', 'M ' + (x - dropdownData.left) + ' ' + (y - elementData.top) + ' L ' + dropdownData.width + ' ' + elementData.height + ' L 0 ' + elementData.height + ' z');
     }
-}
-
+};
 /***********************************************************************************************************************
  * Get Element Data
  **********************************************************************************************************************/
-
-const getElementData = (element) => {
+var getElementData = function (element) {
     // Get element bounding rects
-    let elementRect: DOMRect = element.getBoundingClientRect();
-
+    var elementRect = element.getBoundingClientRect();
     // Create and return data object
     return new ElementData(element, elementRect.width, elementRect.height, elementRect.top, elementRect.right, elementRect.bottom, elementRect.left, (elementRect.width / 2), (elementRect.height / 2), element.hasAttribute('href'));
 };
-
 /***********************************************************************************************************************
  * Get Dropdown Data
  **********************************************************************************************************************/
-
-const getDropdownData = (dropdown, direction) => {
+var getDropdownData = function (dropdown, direction) {
     // Save the current style attribute if available
-    let style: string = '';
+    var style = '';
     if (dropdown.hasAttribute('style')) {
         style = dropdown.getAttribute('style');
     }
-
     // Set styling of dropdown to get data
     dropdown.style.display = 'block';
-
     // Get element bounding rects
-    let dropdownRect: DOMRect = dropdown.getBoundingClientRect();
-
+    var dropdownRect = dropdown.getBoundingClientRect();
     // Reset style attribute
     dropdown.setAttribute('style', style);
-
     // Create and return data object
-    return new DropdownData (dropdown,  dropdownRect.width,dropdownRect.height, dropdownRect.top, dropdownRect.right, dropdownRect.bottom, dropdownRect.left, direction, style);
+    return new DropdownData(dropdown, dropdownRect.width, dropdownRect.height, dropdownRect.top, dropdownRect.right, dropdownRect.bottom, dropdownRect.left, direction, style);
 };
-
 /***********************************************************************************************************************
  * Generate Safe Areas
  **********************************************************************************************************************/
-
-const generateSafeTriangles = (input, options?: options) => {
-
+var generateSafeTriangles = function (input, options) {
     // Merge default options and custom options
-    let defaultOptions: options = {
+    var defaultOptions = {
         delay: 100,
         debug: false
     };
-    options = {...defaultOptions, ...options};
-
-    let elements: NodeListOf<HTMLElement> = document.querySelectorAll('.safe-triangle__item--js');
-
+    options = __assign(__assign({}, defaultOptions), options);
+    var elements = document.querySelectorAll('.safe-triangle__item--js');
     if (typeof input === 'string' || input instanceof String) {
         elements = document.querySelectorAll(input.toString());
-    } else if (NodeList.prototype.isPrototypeOf(input)) {
+    }
+    else if (NodeList.prototype.isPrototypeOf(input)) {
         elements = input;
     }
-
-    elements.forEach((element: HTMLElement) => {
+    elements.forEach(function (element) {
+        var _a;
         // Dropdown
-        const dropdownId: string = element.dataset.safeTriangleDropdown;
+        var dropdownId = element.dataset.safeTriangleDropdown;
         if (dropdownId != '') {
-            const dropdown: HTMLElement = document.querySelector('div[data-safe-triangle-dropdown="' + dropdownId + '"]');
-            if (dropdown) {
-                const dropdownDirection: string = element.dataset.safeTriangleDirection ?? 'down';
-                let dropdownData: DropdownData = getDropdownData(dropdown, dropdownDirection);
-
+            var dropdown_1 = document.querySelector('div[data-safe-triangle-dropdown="' + dropdownId + '"]');
+            if (dropdown_1) {
+                var dropdownDirection_1 = (_a = element.dataset.safeTriangleDirection) !== null && _a !== void 0 ? _a : 'down';
+                var dropdownData_1 = getDropdownData(dropdown_1, dropdownDirection_1);
                 // Add classes to element
                 element.classList.add('safe-triangle__item', 'safe-triangle__item--js');
-
-                let elementData: ElementData = getElementData(element);
-
+                var elementData_1 = getElementData(element);
                 if (options.debug) {
                     // Add extra debug class
                     element.classList.add('safe-triangle__item--debug');
                 }
-
                 // Create SVG
-                const svgEl: SVGSVGElement = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-                updateSvg(svgEl, elementData, dropdownData);
-
+                var svgEl_1 = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                updateSvg(svgEl_1, elementData_1, dropdownData_1);
                 // Create SVG Path
-                const svgPathEl: SVGPathElement = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-                if (dropdownDirection == 'right') {
-                    updateSvgPath(svgPathEl, elementData, dropdownData, 0, 0, options.debug);
-                } else {
-                    updateSvgPath(svgPathEl, elementData, dropdownData, elementData.centerX, elementData.centerY, options.debug);
+                var svgPathEl_1 = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                if (dropdownDirection_1 == 'right') {
+                    updateSvgPath(svgPathEl_1, elementData_1, dropdownData_1, 0, 0, options.debug);
                 }
-
+                else {
+                    updateSvgPath(svgPathEl_1, elementData_1, dropdownData_1, elementData_1.centerX, elementData_1.centerY, options.debug);
+                }
                 // Add Path to SVG
-                svgEl.appendChild(svgPathEl);
-
+                svgEl_1.appendChild(svgPathEl_1);
                 // Add SVG to element
-                element.appendChild(svgEl);
-
+                element.appendChild(svgEl_1);
                 // Redraw SVG on mouseEnter (fix for child dropdowns & transform styling)
-                element.addEventListener('mouseenter', (e: MouseEvent) => {
-                    elementData = getElementData(element);
-                    dropdownData = getDropdownData(dropdown, dropdownDirection);
-                    updateSvg(svgEl, elementData, dropdownData);
+                element.addEventListener('mouseenter', function (e) {
+                    elementData_1 = getElementData(element);
+                    dropdownData_1 = getDropdownData(dropdown_1, dropdownDirection_1);
+                    updateSvg(svgEl_1, elementData_1, dropdownData_1);
                 });
-
                 // Element mousemove update path
-                element.addEventListener('mousemove', (e: MouseEvent) => {
+                element.addEventListener('mousemove', function (e) {
                     // Mouse position
-                    const x: number = e.clientX;
-                    const y: number = e.clientY;
-
-                    setTimeout(() => {
-                        updateSvgPath(svgPathEl, elementData, dropdownData, x, y, options.debug);
+                    var x = e.clientX;
+                    var y = e.clientY;
+                    setTimeout(function () {
+                        updateSvgPath(svgPathEl_1, elementData_1, dropdownData_1, x, y, options.debug);
                     }, options.delay);
                 });
-
                 // Get width on resize and update SVG width
-                window.addEventListener('resize', () => {
-                    dropdownData = getDropdownData(dropdown, dropdownDirection);
-                    elementData = getElementData(element);
-                    updateSvg(svgEl, elementData, dropdownData);
+                window.addEventListener('resize', function () {
+                    dropdownData_1 = getDropdownData(dropdown_1, dropdownDirection_1);
+                    elementData_1 = getElementData(element);
+                    updateSvg(svgEl_1, elementData_1, dropdownData_1);
                 });
             }
         }
     });
 };
-
-export default generateSafeTriangles;
+exports["default"] = generateSafeTriangles;
+//# sourceMappingURL=index.js.map
