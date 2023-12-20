@@ -4,10 +4,10 @@
  * Classes
  **********************************************************************************************************************/
 
-class elementData {
+class ElementData {
     _el: object;
-    height: number;
     width: number;
+    height: number;
     top: number;
     right: number;
     bottom: number;
@@ -15,9 +15,22 @@ class elementData {
     centerX: number;
     centerY: number;
     isLink: boolean;
+
+    constructor(el, width, height, top, right, bottom, left, centerX, centerY, isLink) {
+        this._el = el;
+        this.width = width;
+        this.height = height;
+        this.top = top;
+        this.right = right;
+        this.bottom = bottom;
+        this.left = left;
+        this.centerX = centerX;
+        this.centerY = centerY;
+        this.isLink = isLink;
+    }
 }
 
-class dropdownData {
+class DropdownData {
     _el: object;
     width: number;
     height: number;
@@ -27,6 +40,18 @@ class dropdownData {
     left: number;
     direction: string;
     style: string;
+
+    constructor(el, width, height, top, right, bottom, left, direction, style) {
+        this._el = el;
+        this.width = width;
+        this.height = height;
+        this.top = top;
+        this.right = right;
+        this.bottom = bottom;
+        this.left = left;
+        this.direction = direction;
+        this.style = style;
+    }
 }
 
 class options {
@@ -110,22 +135,8 @@ const getElementData = (element) => {
     // Get element bounding rects
     let elementRect: DOMRect = element.getBoundingClientRect();
 
-    // Create data object
-    let elementData: elementData = {
-        _el: element,
-        height: elementRect.height,
-        width: elementRect.width,
-        top: elementRect.top,
-        right: elementRect.right,
-        bottom: elementRect.bottom,
-        left: elementRect.left,
-        centerX: (elementRect.width / 2),
-        centerY: (elementRect.height / 2),
-        isLink: element.hasAttribute('href')
-    }
-
-    // Return data
-    return elementData;
+    // Create and return data object
+    return new ElementData(element, elementRect.width, elementRect.height, elementRect.top, elementRect.right, elementRect.bottom, elementRect.left, (elementRect.width / 2), (elementRect.height / 2), element.hasAttribute('href'));
 };
 
 /***********************************************************************************************************************
@@ -145,24 +156,11 @@ const getDropdownData = (dropdown, direction) => {
     // Get element bounding rects
     let dropdownRect: DOMRect = dropdown.getBoundingClientRect();
 
-    // Create data object
-    const dropdownData: dropdownData = {
-        _el: dropdown,
-        height: dropdownRect.height,
-        width: dropdownRect.width,
-        top: dropdownRect.top,
-        right: dropdownRect.right,
-        bottom: dropdownRect.bottom,
-        left: dropdownRect.left,
-        direction: direction,
-        style: style
-    }
-
     // Reset style attribute
     dropdown.setAttribute('style', style);
 
-    // Return data
-    return dropdownData;
+    // Create and return data object
+    return new DropdownData (dropdown,  dropdownRect.width,dropdownRect.height, dropdownRect.top, dropdownRect.right, dropdownRect.bottom, dropdownRect.left, direction, style);
 };
 
 /***********************************************************************************************************************
@@ -193,12 +191,12 @@ const generateSafeTriangles = (input, options?: options) => {
             const dropdown: HTMLElement = document.querySelector('div[data-safe-triangle-dropdown="' + dropdownId + '"]');
             if (dropdown) {
                 const dropdownDirection: string = element.dataset.safeTriangleDirection ?? 'down';
-                let dropdownData: dropdownData = getDropdownData(dropdown, dropdownDirection);
+                let dropdownData: DropdownData = getDropdownData(dropdown, dropdownDirection);
 
                 // Add classes to element
                 element.classList.add('safe-triangle__item', 'safe-triangle__item--js');
 
-                let elementData: elementData = getElementData(element);
+                let elementData: ElementData = getElementData(element);
 
                 if (options.debug) {
                     // Add extra debug class
