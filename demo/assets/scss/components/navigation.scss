@@ -1,0 +1,29 @@
+.nav-l1 {
+  &__item {
+    &:hover {
+      background-color: $light;
+    }
+  }
+
+  &__item-link {
+    color: $white;
+
+    .nav-l1__item:hover & {
+      color: $primary;
+    }
+  }
+
+  &__dropdown {
+    display: none;
+
+    .nav-l1__item:hover & {
+      display: block;
+    }
+  }
+}
+
+.nav-l2 {
+  &__item-link {
+    color: $black;
+  }
+}

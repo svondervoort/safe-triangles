@@ -1,0 +1,10 @@
+{
+  "demo/assets/ts/app.ts": {
+    "css": [
+      "demo.css"
+    ],
+    "file": "demo.js",
+    "isEntry": true,
+    "src": "demo/assets/ts/app.ts"
+  }
+}

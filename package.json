@@ -5,7 +5,8 @@
   "main": "dist/ts/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "css": "sass src/scss/style.scss dist/css/style.css"
+    "css": "sass src/scss/style.scss dist/css/style.css",
+    "demo-build": "vite build"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,9 @@
     "url": "https://github.com/svondervoort/safe-triangles/issues"
   },
   "homepage": "https://github.com/svondervoort/safe-triangles#readme",
-  "dev-dependencies": {
-    "sass": "^1.69.5"
+  "devDependencies": {
+    "bootstrap": "^5.3.2",
+    "sass": "^1.69.5",
+    "vite": "^5.0.10"
   }
 }

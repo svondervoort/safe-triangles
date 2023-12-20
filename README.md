@@ -40,7 +40,7 @@ import '@svondervoort/safe-triangles/src/scss/style.scss';
 ```html
 data-safe-triangle-dropdown="..."
 ```
-Add this to the menu-item and the dropdown it is associated with.
+Add this to the menu-item anchor element and the dropdown it is associated with.
 
 #### Optional
 ```html
