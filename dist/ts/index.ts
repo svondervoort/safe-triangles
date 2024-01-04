@@ -157,7 +157,7 @@ const getDropdownData = (dropdown, elementData) => {
     let dropdownRect: DOMRect = dropdown.getBoundingClientRect();
 
     // Get dropdown position relative to element
-    const direction: string = elementData.right < dropdownRect.left ? 'right' : 'down';
+    const direction: string = (elementData.right == dropdownRect.left || elementData.right < dropdownRect.left) ? 'right' : 'down';
 
     // Reset style attribute
     dropdown.setAttribute('style', style);
