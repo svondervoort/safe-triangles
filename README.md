@@ -34,20 +34,12 @@ import '@svondervoort/safe-triangles/dist/css/style.css';
 import '@svondervoort/safe-triangles/src/scss/style.scss';
 ```
 
-### 3. Adding data-attributes
+### 3. Adding data-attribute
 
-#### Required
 ```html
 data-safe-triangle-dropdown="..."
 ```
 Add this to the menu-item anchor element and the dropdown it is associated with.
-
-#### Optional
-```html
-data-safe-triangle-direction
-```
-Add this to the menu-item if you wish to set the direction of the menu-item to the dropdown.
-Possible values: `down` (Default) / `right`
 
 ### 4. Initializing
 Initialize the logic using `generateSafeTriangles();`.
@@ -86,4 +78,6 @@ You can find a demo here with 3 variants:
 ---
 # Roadmap
 
-- Detect position of dropdown compared to menu-item to make `data-safe-triangle-direction` redundant.
+- Add `left` and `top` options for dropdown direction/position.
+
+
