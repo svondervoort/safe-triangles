@@ -5,6 +5,17 @@
 import '../scss/style.scss';
 
 /***********************************************************************************************************************
+ * Bootstrap
+ **********************************************************************************************************************/
+
+import "@popperjs/core";
+import { Tooltip } from 'bootstrap';
+
+const tooltipTriggerList: NodeListOf<HTMLElement> = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+console.log(tooltipTriggerList);
+const tooltipList: any[] = [...tooltipTriggerList].map(tooltipTriggerEl => new Tooltip(tooltipTriggerEl));
+
+/***********************************************************************************************************************
  * Safe Triangle
  **********************************************************************************************************************/
 
@@ -23,5 +34,34 @@ let debugElements: NodeListOf<HTMLElement> = document.querySelectorAll('.nav-saf
 let elements: NodeListOf<HTMLElement> = document.querySelectorAll('.nav-safe-triangles--js');
 
 // Initialize with delay and debug
-generateSafeTriangles(debugElements, { debug: true });
-generateSafeTriangles(elements);
+if (debugElements) {
+    generateSafeTriangles(debugElements, {debug: true});
+}
+
+if (elements) {
+    generateSafeTriangles(elements);
+}
+
+/***********************************************************************************************************************
+ * Demo Navigation Logic
+ **********************************************************************************************************************/
+
+const l2NavItems: NodeListOf <HTMLElement> = document.querySelectorAll('.nav-l2__item-link--js');
+l2NavItems.forEach((navItem: HTMLElement) => {
+    navItem.addEventListener('mouseover', () => {
+        const id: string = navItem.dataset.safeTriangleDropdown;
+        console.log('id', id);
+        // Remove active class from active wrapper
+        const activeWrapper: HTMLElement = document.querySelector('.nav-l2__dropdown--is-active');
+        if (activeWrapper) {
+            activeWrapper.classList.remove('nav-l2__dropdown--is-active');
+        }
+        // Add active class corresponding with ID
+        if (id) {
+            const newWrapper: HTMLElement = document.querySelector('.nav-l2__dropdown--js[data-safe-triangle-dropdown="' + id + '"]');
+            if (newWrapper) {
+                newWrapper.classList.add('nav-l2__dropdown--is-active');
+            }
+        }
+    });
+});

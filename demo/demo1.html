@@ -5,801 +5,164 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Safe Triangles Demo</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="/dist/demo.css">
 </head>
 <body class="position-relative d-flex align-items-center justify-content-center">
-<h2>Without Safe Triangles</h2>
+<h2 class="d-flex flex-column gap-4 align-items-center">
+    <span class="material-symbols-outlined fs-32">block</span>
+    <strong class="fs-4">Without Safe-Triangles</strong>
+</h2>
 <nav class="position-fixed top-0 start-0 end-0 bg-black w-100 d-flex justify-content-between">
     <div class="d-flex">
-        <strong class="d-block p-4 bg-primary text-white">Safe Triangles Demo</strong>
-        <ul class="list-unstyled mb-0 d-flex">
+        <strong class="d-flex align-items-center gap-2 p-4 bg-primary text-white">
+            <span class="material-symbols-outlined">change_history</span>
+            Safe Triangles
+        </strong>
+        <ul class="navigation--js list-unstyled mb-0 d-flex">
             <li class="nav-l1__item">
-                <a class="nav-l1__item-link d-block p-4 " href="#1" data-safe-triangle-dropdown="dd__1">
-                    Item 1 </a>
-                <div class="nav-l1__dropdown position-fixed start-0 end-0 bg-light p-4"
-                     data-safe-triangle-dropdown="dd__1">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <a class="nav-l2__item-link d-block fw-bold p-4 border-bottom border-primary" href="#1">
-                                Item 1.1 </a>
+                <a class="nav-l1__item-link d-block p-4 text-primary" href="#"
+                   data-safe-triangle-dropdown="dd_nav-safe-triangles-debug_1">
+                    Go from here </a>
+                <div class="nav-l1__dropdown position-fixed start-0 end-0 bg-gray-100"
+                     data-safe-triangle-dropdown="dd_nav-safe-triangles-debug_1">
+                    <div class="row g-0">
+                        <div class="col-3">
                             <ul class="list-unstyled mb-0">
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#1">
-                                        Item 1.1.1 </a>
+                                <li class="nav-l2__item">
+                                    <a class="nav-l2__item-link nav-l2__item-link--js d-block p-4" href="#"
+                                       data-safe-triangle-dropdown="dd_nav-safe-triangles-debug_1-1">
+                                        Item 1.1 </a>
                                 </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#2">
-                                        Item 1.1.2 </a>
+                                <li class="nav-l2__item">
+                                    <a class="nav-l2__item-link nav-l2__item-link--js d-block p-4" href="#"
+                                       data-safe-triangle-dropdown="dd_nav-safe-triangles-debug_1-2">
+                                        Item 1.2 </a>
                                 </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#3">
-                                        Item 1.1.3 </a>
+                                <li class="nav-l2__item">
+                                    <a class="nav-l2__item-link nav-l2__item-link--js d-block p-4" href="#"
+                                       data-safe-triangle-dropdown="dd_nav-safe-triangles-debug_1-3">
+                                        Item 1.3 </a>
                                 </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#4">
-                                        Item 1.1.4 </a>
+                                <li class="nav-l2__item">
+                                    <a class="nav-l2__item-link nav-l2__item-link--js d-block p-4" href="#"
+                                       data-safe-triangle-dropdown="dd_nav-safe-triangles-debug_1-4">
+                                        Item 1.4 </a>
                                 </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#5">
-                                        Item 1.1.5 </a>
+                                <li class="nav-l2__item">
+                                    <a class="nav-l2__item-link nav-l2__item-link--js d-block p-4" href="#"
+                                       data-safe-triangle-dropdown="dd_nav-safe-triangles-debug_1-5">
+                                        Item 1.5 </a>
                                 </li>
                             </ul>
                         </div>
-                        <div class="col-md-3">
-                            <a class="nav-l2__item-link d-block fw-bold p-4 border-bottom border-primary" href="#2">
-                                Item 1.2 </a>
-                            <ul class="list-unstyled mb-0">
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#1">
-                                        Item 1.2.1 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#2">
-                                        Item 1.2.2 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#3">
-                                        Item 1.2.3 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#4">
-                                        Item 1.2.4 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#5">
-                                        Item 1.2.5 </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3">
-                            <a class="nav-l2__item-link d-block fw-bold p-4 border-bottom border-primary" href="#3">
-                                Item 1.3 </a>
-                            <ul class="list-unstyled mb-0">
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#1">
-                                        Item 1.3.1 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#2">
-                                        Item 1.3.2 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#3">
-                                        Item 1.3.3 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#4">
-                                        Item 1.3.4 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#5">
-                                        Item 1.3.5 </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3">
-                            <a class="nav-l2__item-link d-block fw-bold p-4 border-bottom border-primary" href="#4">
-                                Item 1.4 </a>
-                            <ul class="list-unstyled mb-0">
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#1">
-                                        Item 1.4.1 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#2">
-                                        Item 1.4.2 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#3">
-                                        Item 1.4.3 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#4">
-                                        Item 1.4.4 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#5">
-                                        Item 1.4.5 </a>
-                                </li>
-                            </ul>
+                        <div class="col-9">
+                            <div class="nav-l2__dropdown nav-l2__dropdown--is-active nav-l2__dropdown--js bg-gray-200" data-safe-triangle-dropdown="dd_nav-safe-triangles-debug_1-1">
+                                <div class="row g-0">
+                                    <div class="col-4">
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="nav-l3__item"><a href="#" class="nav-l3__item-link d-block p-4">Item 1.1.1</a></li>
+                                            <li class="nav-l3__item"><a href="#" class="nav-l3__item-link d-block p-4">Item 1.1.2</a></li>
+                                            <li class="nav-l3__item"><a href="#" class="nav-l3__item-link d-block p-4">Item 1.1.3</a></li>
+                                            <li class="nav-l3__item"><a href="#" class="nav-l3__item-link d-block p-4">Item 1.1.4</a></li>
+                                            <li class="nav-l3__item"><a href="#" class="nav-l3__item-link d-block p-4 text-primary">To here</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-4">
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="nav-l3__item"><a href="#" class="nav-l3__item-link d-block p-4">Item 1.1.6</a></li>
+                                            <li class="nav-l3__item"><a href="#" class="nav-l3__item-link d-block p-4">Item 1.1.7</a></li>
+                                            <li class="nav-l3__item"><a href="#" class="nav-l3__item-link d-block p-4">Item 1.1.8</a></li>
+                                            <li class="nav-l3__item"><a href="#" class="nav-l3__item-link d-block p-4">Item 1.1.9</a></li>
+                                            <li class="nav-l3__item"><a href="#" class="nav-l3__item-link d-block p-4 text-primary">Or here</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-4">
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="nav-l3__item"><a href="#" class="nav-l3__item-link d-block p-4">Item 1.1.11</a></li>
+                                            <li class="nav-l3__item"><a href="#" class="nav-l3__item-link d-block p-4">Item 1.1.12</a></li>
+                                            <li class="nav-l3__item"><a href="#" class="nav-l3__item-link d-block p-4">Item 1.1.13</a></li>
+                                            <li class="nav-l3__item"><a href="#" class="nav-l3__item-link d-block p-4">Item 1.1.14</a></li>
+                                            <li class="nav-l3__item"><a href="#" class="nav-l3__item-link d-block p-4 text-primary">Or here</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </li>
+
             <li class="nav-l1__item">
-                <a class="nav-l1__item-link d-block p-4 " href="#2" data-safe-triangle-dropdown="dd__2">
+                <a class="nav-l1__item-link d-block p-4" href="#"
+                   data-safe-triangle-dropdown="dd_nav-safe-triangles-debug_2">
                     Item 2 </a>
-                <div class="nav-l1__dropdown position-fixed start-0 end-0 bg-light p-4"
-                     data-safe-triangle-dropdown="dd__2">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <a class="nav-l2__item-link d-block fw-bold p-4 border-bottom border-primary" href="#1">
-                                Item 2.1 </a>
-                            <ul class="list-unstyled mb-0">
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#1">
-                                        Item 2.1.1 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#2">
-                                        Item 2.1.2 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#3">
-                                        Item 2.1.3 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#4">
-                                        Item 2.1.4 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#5">
-                                        Item 2.1.5 </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3">
-                            <a class="nav-l2__item-link d-block fw-bold p-4 border-bottom border-primary" href="#2">
-                                Item 2.2 </a>
-                            <ul class="list-unstyled mb-0">
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#1">
-                                        Item 2.2.1 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#2">
-                                        Item 2.2.2 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#3">
-                                        Item 2.2.3 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#4">
-                                        Item 2.2.4 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#5">
-                                        Item 2.2.5 </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3">
-                            <a class="nav-l2__item-link d-block fw-bold p-4 border-bottom border-primary" href="#3">
-                                Item 2.3 </a>
-                            <ul class="list-unstyled mb-0">
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#1">
-                                        Item 2.3.1 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#2">
-                                        Item 2.3.2 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#3">
-                                        Item 2.3.3 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#4">
-                                        Item 2.3.4 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#5">
-                                        Item 2.3.5 </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3">
-                            <a class="nav-l2__item-link d-block fw-bold p-4 border-bottom border-primary" href="#4">
-                                Item 2.4 </a>
-                            <ul class="list-unstyled mb-0">
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#1">
-                                        Item 2.4.1 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#2">
-                                        Item 2.4.2 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#3">
-                                        Item 2.4.3 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#4">
-                                        Item 2.4.4 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#5">
-                                        Item 2.4.5 </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="nav-l1__item">
-                <a class="nav-l1__item-link d-block p-4 " href="#3" data-safe-triangle-dropdown="dd__3">
-                    Item 3 </a>
-                <div class="nav-l1__dropdown position-fixed start-0 end-0 bg-light p-4"
-                     data-safe-triangle-dropdown="dd__3">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <a class="nav-l2__item-link d-block fw-bold p-4 border-bottom border-primary" href="#1">
-                                Item 3.1 </a>
-                            <ul class="list-unstyled mb-0">
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#1">
-                                        Item 3.1.1 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#2">
-                                        Item 3.1.2 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#3">
-                                        Item 3.1.3 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#4">
-                                        Item 3.1.4 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#5">
-                                        Item 3.1.5 </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3">
-                            <a class="nav-l2__item-link d-block fw-bold p-4 border-bottom border-primary" href="#2">
-                                Item 3.2 </a>
-                            <ul class="list-unstyled mb-0">
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#1">
-                                        Item 3.2.1 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#2">
-                                        Item 3.2.2 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#3">
-                                        Item 3.2.3 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#4">
-                                        Item 3.2.4 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#5">
-                                        Item 3.2.5 </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3">
-                            <a class="nav-l2__item-link d-block fw-bold p-4 border-bottom border-primary" href="#3">
-                                Item 3.3 </a>
-                            <ul class="list-unstyled mb-0">
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#1">
-                                        Item 3.3.1 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#2">
-                                        Item 3.3.2 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#3">
-                                        Item 3.3.3 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#4">
-                                        Item 3.3.4 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#5">
-                                        Item 3.3.5 </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3">
-                            <a class="nav-l2__item-link d-block fw-bold p-4 border-bottom border-primary" href="#4">
-                                Item 3.4 </a>
-                            <ul class="list-unstyled mb-0">
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#1">
-                                        Item 3.4.1 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#2">
-                                        Item 3.4.2 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#3">
-                                        Item 3.4.3 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#4">
-                                        Item 3.4.4 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#5">
-                                        Item 3.4.5 </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="nav-l1__item">
-                <a class="nav-l1__item-link d-block p-4 " href="#4" data-safe-triangle-dropdown="dd__4">
-                    Item 4 </a>
-                <div class="nav-l1__dropdown position-fixed start-0 end-0 bg-light p-4"
-                     data-safe-triangle-dropdown="dd__4">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <a class="nav-l2__item-link d-block fw-bold p-4 border-bottom border-primary" href="#1">
-                                Item 4.1 </a>
-                            <ul class="list-unstyled mb-0">
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#1">
-                                        Item 4.1.1 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#2">
-                                        Item 4.1.2 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#3">
-                                        Item 4.1.3 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#4">
-                                        Item 4.1.4 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#5">
-                                        Item 4.1.5 </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3">
-                            <a class="nav-l2__item-link d-block fw-bold p-4 border-bottom border-primary" href="#2">
-                                Item 4.2 </a>
-                            <ul class="list-unstyled mb-0">
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#1">
-                                        Item 4.2.1 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#2">
-                                        Item 4.2.2 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#3">
-                                        Item 4.2.3 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#4">
-                                        Item 4.2.4 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#5">
-                                        Item 4.2.5 </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3">
-                            <a class="nav-l2__item-link d-block fw-bold p-4 border-bottom border-primary" href="#3">
-                                Item 4.3 </a>
-                            <ul class="list-unstyled mb-0">
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#1">
-                                        Item 4.3.1 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#2">
-                                        Item 4.3.2 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#3">
-                                        Item 4.3.3 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#4">
-                                        Item 4.3.4 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#5">
-                                        Item 4.3.5 </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3">
-                            <a class="nav-l2__item-link d-block fw-bold p-4 border-bottom border-primary" href="#4">
-                                Item 4.4 </a>
-                            <ul class="list-unstyled mb-0">
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#1">
-                                        Item 4.4.1 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#2">
-                                        Item 4.4.2 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#3">
-                                        Item 4.4.3 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#4">
-                                        Item 4.4.4 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#5">
-                                        Item 4.4.5 </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="nav-l1__item">
-                <a class="nav-l1__item-link d-block p-4 " href="#5" data-safe-triangle-dropdown="dd__5">
-                    Item 5 </a>
-                <div class="nav-l1__dropdown position-fixed start-0 end-0 bg-light p-4"
-                     data-safe-triangle-dropdown="dd__5">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <a class="nav-l2__item-link d-block fw-bold p-4 border-bottom border-primary" href="#1">
-                                Item 5.1 </a>
-                            <ul class="list-unstyled mb-0">
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#1">
-                                        Item 5.1.1 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#2">
-                                        Item 5.1.2 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#3">
-                                        Item 5.1.3 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#4">
-                                        Item 5.1.4 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#5">
-                                        Item 5.1.5 </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3">
-                            <a class="nav-l2__item-link d-block fw-bold p-4 border-bottom border-primary" href="#2">
-                                Item 5.2 </a>
-                            <ul class="list-unstyled mb-0">
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#1">
-                                        Item 5.2.1 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#2">
-                                        Item 5.2.2 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#3">
-                                        Item 5.2.3 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#4">
-                                        Item 5.2.4 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#5">
-                                        Item 5.2.5 </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3">
-                            <a class="nav-l2__item-link d-block fw-bold p-4 border-bottom border-primary" href="#3">
-                                Item 5.3 </a>
-                            <ul class="list-unstyled mb-0">
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#1">
-                                        Item 5.3.1 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#2">
-                                        Item 5.3.2 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#3">
-                                        Item 5.3.3 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#4">
-                                        Item 5.3.4 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#5">
-                                        Item 5.3.5 </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3">
-                            <a class="nav-l2__item-link d-block fw-bold p-4 border-bottom border-primary" href="#4">
-                                Item 5.4 </a>
-                            <ul class="list-unstyled mb-0">
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#1">
-                                        Item 5.4.1 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#2">
-                                        Item 5.4.2 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#3">
-                                        Item 5.4.3 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#4">
-                                        Item 5.4.4 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#5">
-                                        Item 5.4.5 </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="nav-l1__item">
-                <a class="nav-l1__item-link d-block p-4 " href="#6" data-safe-triangle-dropdown="dd__6">
-                    Item 6 </a>
-                <div class="nav-l1__dropdown position-fixed start-0 end-0 bg-light p-4"
-                     data-safe-triangle-dropdown="dd__6">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <a class="nav-l2__item-link d-block fw-bold p-4 border-bottom border-primary" href="#1">
-                                Item 6.1 </a>
-                            <ul class="list-unstyled mb-0">
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#1">
-                                        Item 6.1.1 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#2">
-                                        Item 6.1.2 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#3">
-                                        Item 6.1.3 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#4">
-                                        Item 6.1.4 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#5">
-                                        Item 6.1.5 </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3">
-                            <a class="nav-l2__item-link d-block fw-bold p-4 border-bottom border-primary" href="#2">
-                                Item 6.2 </a>
-                            <ul class="list-unstyled mb-0">
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#1">
-                                        Item 6.2.1 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#2">
-                                        Item 6.2.2 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#3">
-                                        Item 6.2.3 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#4">
-                                        Item 6.2.4 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#5">
-                                        Item 6.2.5 </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3">
-                            <a class="nav-l2__item-link d-block fw-bold p-4 border-bottom border-primary" href="#3">
-                                Item 6.3 </a>
-                            <ul class="list-unstyled mb-0">
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#1">
-                                        Item 6.3.1 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#2">
-                                        Item 6.3.2 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#3">
-                                        Item 6.3.3 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#4">
-                                        Item 6.3.4 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#5">
-                                        Item 6.3.5 </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3">
-                            <a class="nav-l2__item-link d-block fw-bold p-4 border-bottom border-primary" href="#4">
-                                Item 6.4 </a>
-                            <ul class="list-unstyled mb-0">
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#1">
-                                        Item 6.4.1 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#2">
-                                        Item 6.4.2 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#3">
-                                        Item 6.4.3 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#4">
-                                        Item 6.4.4 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#5">
-                                        Item 6.4.5 </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="nav-l1__item">
-                <a class="nav-l1__item-link d-block p-4 " href="#7" data-safe-triangle-dropdown="dd__7">
-                    Item 7 </a>
-                <div class="nav-l1__dropdown position-fixed start-0 end-0 bg-light p-4"
-                     data-safe-triangle-dropdown="dd__7">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <a class="nav-l2__item-link d-block fw-bold p-4 border-bottom border-primary" href="#1">
-                                Item 7.1 </a>
-                            <ul class="list-unstyled mb-0">
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#1">
-                                        Item 7.1.1 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#2">
-                                        Item 7.1.2 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#3">
-                                        Item 7.1.3 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#4">
-                                        Item 7.1.4 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#5">
-                                        Item 7.1.5 </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3">
-                            <a class="nav-l2__item-link d-block fw-bold p-4 border-bottom border-primary" href="#2">
-                                Item 7.2 </a>
-                            <ul class="list-unstyled mb-0">
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#1">
-                                        Item 7.2.1 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#2">
-                                        Item 7.2.2 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#3">
-                                        Item 7.2.3 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#4">
-                                        Item 7.2.4 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#5">
-                                        Item 7.2.5 </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3">
-                            <a class="nav-l2__item-link d-block fw-bold p-4 border-bottom border-primary" href="#3">
-                                Item 7.3 </a>
-                            <ul class="list-unstyled mb-0">
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#1">
-                                        Item 7.3.1 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#2">
-                                        Item 7.3.2 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#3">
-                                        Item 7.3.3 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#4">
-                                        Item 7.3.4 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#5">
-                                        Item 7.3.5 </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3">
-                            <a class="nav-l2__item-link d-block fw-bold p-4 border-bottom border-primary" href="#4">
-                                Item 7.4 </a>
-                            <ul class="list-unstyled mb-0">
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#1">
-                                        Item 7.4.1 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#2">
-                                        Item 7.4.2 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#3">
-                                        Item 7.4.3 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#4">
-                                        Item 7.4.4 </a>
-                                </li>
-                                <li class="nav-l2__item ">
-                                    <a class="nav-l2__item-link d-block p-4" href="#5">
-                                        Item 7.4.5 </a>
-                                </li>
-                            </ul>
+                <div class="nav-l1__dropdown position-fixed start-0 end-0 bg-gray-100"
+                     data-safe-triangle-dropdown="dd_nav-safe-triangles-debug_2">
+                    <div class="container">
+                        <div class="row g-0">
+                            <div class="col-3">
+                                <ul class="list-unstyled mb-0">
+                                    <li class="nav-l2__item">
+                                        <a class="nav-l2__item-link nav-l2__item-link--js d-block p-4" href="#"
+                                           data-safe-triangle-dropdown="dd_nav-safe-triangles-debug_2-1">
+                                            Item 2.1 </a>
+                                    </li>
+                                    <li class="nav-l2__item">
+                                        <a class="nav-l2__item-link nav-l2__item-link--js d-block p-4" href="#"
+                                           data-safe-triangle-dropdown="dd_nav-safe-triangles-debug_2-2">
+                                            Item 2.2 </a>
+                                    </li>
+                                    <li class="nav-l2__item">
+                                        <a class="nav-l2__item-link nav-l2__item-link--js d-block p-4" href="#"
+                                           data-safe-triangle-dropdown="dd_nav-safe-triangles-debug_2-3">
+                                            Item 2.3 </a>
+                                    </li>
+                                    <li class="nav-l2__item">
+                                        <a class="nav-l2__item-link nav-l2__item-link--js d-block p-4" href="#"
+                                           data-safe-triangle-dropdown="dd_nav-safe-triangles-debug_2-4">
+                                            Item 2.4 </a>
+                                    </li>
+                                    <li class="nav-l2__item">
+                                        <a class="nav-l2__item-link nav-l2__item-link--js d-block p-4" href="#"
+                                           data-safe-triangle-dropdown="dd_nav-safe-triangles-debug_2-5">
+                                            Item 2.5 </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-9">
+                                <div class="nav-l2__dropdown nav-l2__dropdown--is-active nav-l2__dropdown--js bg-gray-200" data-safe-triangle-dropdown="dd_nav-safe-triangles-debug_1-1">
+                                    <div class="row g-0">
+                                        <div class="col-4">
+                                            <ul class="list-unstyled mb-0">
+                                                <li class="nav-l3__item"><a href="#" class="nav-l3__item-link d-block p-4">Item 2.1.1</a></li>
+                                                <li class="nav-l3__item"><a href="#" class="nav-l3__item-link d-block p-4">Item 2.1.2</a></li>
+                                                <li class="nav-l3__item"><a href="#" class="nav-l3__item-link d-block p-4">Item 2.1.3</a></li>
+                                                <li class="nav-l3__item"><a href="#" class="nav-l3__item-link d-block p-4">Item 2.1.4</a></li>
+                                                <li class="nav-l3__item"><a href="#" class="nav-l3__item-link d-block p-4">Item 2.1.5</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-4">
+                                            <ul class="list-unstyled mb-0">
+                                                <li class="nav-l3__item"><a href="#" class="nav-l3__item-link d-block p-4">Item 2.1.6</a></li>
+                                                <li class="nav-l3__item"><a href="#" class="nav-l3__item-link d-block p-4">Item 2.1.7</a></li>
+                                                <li class="nav-l3__item"><a href="#" class="nav-l3__item-link d-block p-4">Item 2.1.8</a></li>
+                                                <li class="nav-l3__item"><a href="#" class="nav-l3__item-link d-block p-4">Item 2.1.9</a></li>
+                                                <li class="nav-l3__item"><a href="#" class="nav-l3__item-link d-block p-4">Item 2.1.10</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-4">
+                                            <ul class="list-unstyled mb-0">
+                                                <li class="nav-l3__item"><a href="#" class="nav-l3__item-link d-block p-4">Item 2.1.11</a></li>
+                                                <li class="nav-l3__item"><a href="#" class="nav-l3__item-link d-block p-4">Item 2.1.12</a></li>
+                                                <li class="nav-l3__item"><a href="#" class="nav-l3__item-link d-block p-4">Item 2.1.13</a></li>
+                                                <li class="nav-l3__item"><a href="#" class="nav-l3__item-link d-block p-4">Item 2.1.14</a></li>
+                                                <li class="nav-l3__item"><a href="#" class="nav-l3__item-link d-block p-4">Item 2.1.15</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -809,15 +172,24 @@
 
     <div>
         <ul class="list-unstyled mb-0 d-flex">
-            <li class="nav-l1__item">
-                <a class="nav-l1__item-link d-block p-4 bg-primary text-white" href="/demo1.html">Without
-                    Safe-Triangles</a>
+            <li>
+                <strong class="text-white opacity-25 d-flex p-4 text-decoration-none">Modes:</strong>
             </li>
             <li class="nav-l1__item">
-                <a class="nav-l1__item-link d-block p-4" href="/">With Safe-Triangles ( debug: true )</a>
+                <a class="nav-l1__item-link d-flex p-4 text-decoration-none bg-primary text-white" href="/demo1.html" title="Without Safe-Triangles" data-bs-toggle="tooltip" data-bs-title="Without Safe-Triangles">
+                    <span class="material-symbols-outlined">block</span>
+                </a>
             </li>
             <li class="nav-l1__item">
-                <a class="nav-l1__item-link d-block p-4" href="/demo3.html">With Safe-Triangles ( debug: false )</a>
+                <a class="nav-l1__item-link d-flex p-4 text-decoration-none" href="/" title="With Safe-Triangles & Debug: true" data-bs-toggle="tooltip" data-bs-title="With Safe-Triangles & Debug: true">
+                    <span class="material-symbols-outlined">change_history</span>
+                    <span class="material-symbols-outlined">bug_report</span>
+                </a>
+            </li>
+            <li class="nav-l1__item">
+                <a class="nav-l1__item-link d-flex p-4 text-decoration-none" href="/demo3.html" title="With Safe-Triangles" data-bs-toggle="tooltip" data-bs-title="With Safe-Triangles">
+                    <span class="material-symbols-outlined">change_history</span>
+                </a>
             </li>
         </ul>
     </div>
