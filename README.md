@@ -86,5 +86,4 @@ You can find a demo here with 3 variants:
 ---
 # Roadmap
 
-[ ❌ ] Create a demo page.
-[ ❌ ] Detect position of dropdown compared to menu-item to make `data-safe-triangle-direction` redundant.
+- Detect position of dropdown compared to menu-item to make `data-safe-triangle-direction` redundant.
