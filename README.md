@@ -1,3 +1,7 @@
+# DEPRECATED
+
+I no longer maintain this project, people can use it as inspiration to create their own version.
+
 # Safe-Triangles
 
 Inspired by: https://www.smashingmagazine.com/2023/08/better-context-menus-safe-triangles/
